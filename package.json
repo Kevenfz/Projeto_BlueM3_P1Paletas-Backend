@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "init": "^0.1.2",
+    "install": "^0.13.0",
+    "mongoose": "^6.3.0",
+    "sass": "^1.50.0",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "name": "y",
+  "description": "## Modificações Keven",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevenfz/Projeto_BlueM3_P1Paletas.git"
+  },
+  "keywords": [],
+  "author": "Keven Ferreira Moraes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kevenfz/Projeto_BlueM3_P1Paletas/issues"
+  },
+  "homepage": "https://github.com/Kevenfz/Projeto_BlueM3_P1Paletas#readme"
+}

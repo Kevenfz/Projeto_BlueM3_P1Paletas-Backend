@@ -1,0 +1,321 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API El Livrodon",
+      "description": "API para CRUD de livros e carrinho de compras",
+      "termsOfService": "",
+      "contact": {
+        "email": "keven.ferreira@hotmail.com"
+      },
+      "version": "1.0.0"
+    },
+    "servers": [
+        {
+          "url": "http://localhost:3003/livros",
+          "description": "API de teste"
+        },
+        {
+          "url": "https://api-elgeladon.herokuapp.com/paletas",
+          "description": "API de produção"
+        }
+      ],
+      "paths": {
+        "/all-livros": {
+          "get": {
+            "summary": "Lista de todos os livros",
+            "description": "Rota responsável por listar todos os livros",
+            "tags": ["Livros"],
+            "responses": {
+              "404": {
+                "description": "Not Found"
+              },
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Livros"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/one-livro/{id}": {
+          "get": {
+            "summary": "Busca um livro pelo ID",
+            "description": "Rota responsável por buscar um livro pelo ID",
+            "tags": ["Livros"],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "description": "Id do livro para a busca",
+                "required": true
+              }
+            ],
+            "responses": {
+              "400": {
+                "description": "Bad Request"
+              },
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/Livros"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/create-livro": {
+          "post": {
+            "summary": "Cadastrar um livro",
+            "description": "Rota responsável por cadastrar um livro",
+            "tags": ["Livros"],
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Livros"
+                  },
+                  "examples": {
+                    "Paletas": {
+                      "value": {
+                        "titulo": "Clube da Luta",
+                        "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+                        "autor":"Chuck Palahniuk",
+                        "capa": "./assets/img/CDLuta.jpg",
+                        "preco": 45
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "responses": {
+              "400": {
+                "description": "Bad Request"
+              },
+              "201": {
+                "description": "Created",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/Livros"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/update-livro/{id}": {
+          "put": {
+            "summary": "Editar um livro pelo ID",
+            "description": "Rota responsável por editar um livro pelo ID",
+            "tags": ["Livros"],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "description": "Id do livro para a busca",
+                "required": true
+              }
+            ],
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Livros"
+                  },
+                  "examples": {
+                    "Paletas": {
+                      "value": {
+                        "titulo": "Código Limpo Edited",
+                        "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+                        "autor":"Robert Cecil Martin",
+                        "capa": "./assets/img/CLimpo.jpg",
+                        "preco": 50
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "responses": {
+              "400": {
+                "description": "Bad Request"
+              },
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/Livros"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/delete-livro/{id}": {
+          "delete": {
+            "summary": "Apagar um livro pelo ID",
+            "description": "Rota responsável por apagar um livro pelo ID",
+            "tags": ["Livros"],
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "description": "Id do livro para deleção",
+                "required": true
+              }
+            ],
+            "responses": {
+              "400": {
+                "description": "Bad Request"
+              },
+              "200": {
+                "description": "OK"
+              }
+            }
+          }
+        },
+        "/all-carrinho": {
+          "get": {
+            "summary": "Lista de todos os itens do carrinho",
+            "description": "Rota responsável por listar todos os itens do carrinho",
+            "tags": ["Carrinho"],
+            "responses": {
+              "404": {
+                "description": "Not Found"
+              },
+              "200": {
+                "description": "OK",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Carrinho"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/create-carrinho": {
+          "post": {
+            "summary": "Cadastrar vários itens no carrinho",
+            "description": "Rota responsável por cadastrar vários itens no carrinho",
+            "tags": ["Carrinho"],
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Carrinho"
+                  },
+                  "examples": {
+                    "Carrinho": {
+                      "value": [
+                        {
+                          "paletaId": "624230fdcd38269205c82197",
+                          "quantidade": 5
+                        },
+                        {
+                          "paletaId": "62423c1e618f4a4738a5ee75",
+                          "quantidade": 2
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "responses": {
+              "400": {
+                "description": "Bad Request"
+              },
+              "201": {
+                "description": "Created",
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Carrinho"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/finish-carrinho": {
+            "delete": {
+              "summary": "Apagar todos os itens do carrinho",
+              "description": "Rota responsável por apagar todos os itens do carrinho",
+              "tags": ["Carrinho"],
+              "responses": {
+                "400": {
+                  "description": "Bad Request"
+                },
+                "200": {
+                  "description": "OK"
+                }
+              }
+            }
+          }
+      },
+      "components": {
+        "schemas": {
+          "Livros": {
+            "type": "object",
+            "properties": {
+              "titulo": {
+                "type": "string"
+              },
+              "descricao": {
+                "type": "string"
+              },
+              "autor": {
+                "type": "string"
+              },
+              "capa": {
+                "type": "string"
+              },
+              "preco": {
+                "type": "number"
+              }
+            }
+          },
+          "Carrinho": {
+            "type": "object",
+            "properties": {
+              "paletaId": {
+                "type": "string"
+              },
+              "quantidade": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+}
+
