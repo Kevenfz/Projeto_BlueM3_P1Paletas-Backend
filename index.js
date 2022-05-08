@@ -13,7 +13,7 @@ const route = require("./src/routes/livro.route.js");
 //Configurando a conexão com o banco de dados
 const connectToDatabase = require('./src/database/database.js')
 
-const port = 3003;
+const port = 3333;
 
 //Configurando nossa aplicação para trabalhar com JSON's (DEIXAR EM CIMA DE TUDO)
 app.use(express.json());

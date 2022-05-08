@@ -26,4 +26,18 @@ const validObjectBody = (req, res, next) => {
   next();
 };
 
-module.exports = {validId, validObjectBody,};
+const validObjectBodyCarrinho = (req, res, next) => {
+  const carrinho = req.body;
+
+  carrinho.forEach((element) => {
+    if (!element || !element.livroId || !element.quantidade) {
+      return res.status(404).send({
+        message: "Preencha todos os campos!",
+      });
+    }
+  });
+
+  next();
+};
+
+module.exports = { validId, validObjectBody, validObjectBodyCarrinho };
