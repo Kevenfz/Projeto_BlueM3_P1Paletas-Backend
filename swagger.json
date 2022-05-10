@@ -15,8 +15,8 @@
           "description": "API de teste"
         },
         {
-          "url": "https://api-elgeladon.herokuapp.com/paletas",
-          "description": "API de produção"
+          "url": "https://api-ellivrodon.onrender.com/livros",
+          "description": "API de produção Render"
         }
       ],
       "paths": {
