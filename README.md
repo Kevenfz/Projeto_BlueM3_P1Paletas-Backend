@@ -17,9 +17,9 @@ API desenvolvida para integração com o front-end, um CRUD completo. El Livrodo
 
 <p>1º Faça o clone do repositório numa pasta de sua preferência com o Git Bash, dentro da pasta escolhida, ainda no terminal do Git Bash, digite "code ." para iniciar seu VsCode.</p><br />
 
-<p>2ºProjeto aberto, inicie seu terminal e digite o comando "npm i" ou "npm install" para instalar todas dependecias necessárias para o funcionamento do projeto.</p><br />
+<p>2º Projeto aberto, inicie seu terminal e digite o comando "npm i" ou "npm install" para instalar todas dependecias necessárias para o funcionamento do projeto.</p><br />
 
-<p>3ºDepois de instalado, digite "npm start" para iniciar o projeto.</p>
+<p>3º Depois de instalado, digite "npm start" para iniciar o projeto.</p>
 
 ## Link de testes do Swagger 
 
