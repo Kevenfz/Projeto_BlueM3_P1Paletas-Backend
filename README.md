@@ -21,7 +21,7 @@ API desenvolvida para integração com o front-end, um CRUD completo. El Livrodo
 
 <p>3º Depois de instalado, digite "npm start" para iniciar o projeto.</p>
 
-## Link de testes do Swagger 
+## Link do deploy pelo Render
 
-Link para testes gerais dos endpoints, como create, find-all, delete, update, etc.<br />
-http://localhost:3333/livros/api-docs/
+Link Swagger para testes gerais dos endpoints, como create, find-all, delete, update, etc.<br />
+https://api-ellivrodon.onrender.com/livros/api-docs/
